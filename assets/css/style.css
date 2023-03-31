@@ -2,6 +2,7 @@
      margin: 0;
      padding: 0;
      box-sizing: border-box;
+     font-size: 12px;
      /* border: 1px solid; */
  }
 
@@ -24,10 +25,22 @@
     margin-right: 0.5rem;
  }
 
+ .toggle i{
+    color: rgb(165, 165, 165)    ;
+ }
+
+
  .desktop_notification{
     height: 10%;
     background: rgb(142, 218, 252);
  }
+
+ .circle{
+    width: 40px;
+    aspect-ratio: 1;
+    
+ }
+
  .search{
     height: 7%;
  }
