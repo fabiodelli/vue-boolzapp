@@ -2,4 +2,10 @@
      margin: 0;
      padding: 0;
      box-sizing: border-box;
+     border: 1px solid;
  }
+
+ body{
+    background: linear-gradient(to bottom,rgb(0, 150, 136) 20%,rgb(219, 219, 210)20% 90%);
+ }
+ 
