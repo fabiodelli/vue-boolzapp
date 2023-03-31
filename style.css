@@ -62,7 +62,18 @@
 
     .box_message{
         height: 82%;
-        background-image: url("../img/mine.jpg");
+        background-image: url("./img/mine.jpg");
+    }
+
+    .m_green{
+        background-color: rgb(213, 249, 186);
+        height: 50px;
+        margin-right: 10rem;
+    }
+    .m_white{
+        background-color: rgb(255, 255, 255);
+        height: 50px;
+        margin-left: 10rem;
     }
 
     .message_bar{

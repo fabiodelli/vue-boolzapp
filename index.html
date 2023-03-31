@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title></title>
-        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./style.css">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
             integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
@@ -16,91 +16,120 @@
             integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
             crossorigin="anonymous">
     </head>
-    <body class="vh-100 d-flex align-items-center overflow-hidden ">
+    
+    
+    <body">
+        
+        <div class="vh-100 d-flex align-items-center z_1" id="app">
 
-        <div class="container col-9 bg-white d-flex p-0">
+            <div class="container col-9 bg-white d-flex p-0">
+    
+                <!-- left side -------------------------------------------------------------------------->
+    
+                <div class="col-4">
 
-            <!-- left side -------------------------------------------------------------------------->
+                <!-- YOUR PROFILE ------------------->
 
-            <div class="col-4">
-
-                <div class="profile d-flex align-items-center justify-content-between border-end ">
-                    <div class="profile_img d-flex align-items-center ms-2">
-                        <img src="./assets/img/avatar_io.jpg" alt="Profile img">
-                        <strong>Sofia</strong>
+                    <div class="profile d-flex align-items-center justify-content-between border-end ">
+                        <div class="profile_img d-flex align-items-center ms-2">
+                            <img src="./img/avatar_io.jpg" alt="Profile img">
+                            <strong>Sofia</strong>
+                        </div>
+                        <div class="toggle d-flex align-items-center me-3">
+                            <i class="fa-solid fa-circle-notch me-3"></i>
+                            <i class="fa-solid fa-message me-3 "></i>
+                            <i class="fa-solid fa-ellipsis-vertical "></i>
+                        </div>
                     </div>
-                    <div class="toggle d-flex align-items-center me-3">
-                        <i class="fa-solid fa-circle-notch me-3"></i>
-                        <i class="fa-solid fa-message me-3 "></i>
-                        <i class="fa-solid fa-ellipsis-vertical "></i>
+
+                <!-- DESKTOP NOTIFICATION --------------->
+
+                    <div class="desktop_notification d-flex align-items-center ">
+                        <div class="circle rounded-circle bg bg-white d-flex justify-content-center align-items-center ms-2">
+                            <i class="fa-solid fa-bell-slash text-info"></i>
+                        </div>
+                        <div class="ms-2 "><strong>Ricevi notifiche di nuovi messaggi</strong> <br><span class="text-decoration-underline">ricevi notifiche destop</span> </div>
                     </div>
+
+                <!-- SEARCH -->
+
+                    <div class="search d-flex align-items-center mt-1 mb-1"> 
+                        
+                      <div class="d-flex justify-content-center align-items-center w-100 border-dark m-2  rounded-2">
+    
+                        <span><i class="fa-solid fa-magnifying-glass m-2"></i></span>
+                        <input class="w-100 m-2 border-0" placeholder="Cerca o inizia una nuova chat" >
+                        
+                      </div>
+                      
+                <!-- CONTACT LIST -->       
+                    </div>
+    
+                    <div class="contact_list">
+
+                        <div v-for="contact in contacts" :key="index" class=" card-list d-flex align-items-center m-2">
+                            <img class="circle_contact rounded-circle" :src="contact.avatar" alt="Avatar img">
+                            <div><strong>{{contact.name}}</strong> <br><span>{{contact.messages[contact.messages.length -1].date}}</span> </div>
+                        </div>
+
+                    </div>
+    
                 </div>
-
-                <div class="desktop_notification d-flex align-items-center ">
-                    <div class="circle rounded-circle bg bg-white d-flex justify-content-center align-items-center ms-2">
-                        <i class="fa-solid fa-bell-slash text-info"></i>
+    
+                <!-- right side ------------------------------------------------------------------------>
+                <!-- PROFILE ------------------------------>
+                <div class="col-8">
+                    <div class="profile d-flex align-items-center justify-content-between">
+                        <div class="profile_img d-flex align-items-center ms-2">
+                            <img src="./img/avatar_io.jpg" alt="Profile img">                       
+                            <div class="ms-2 "><strong>luca</strong> <br><span>ultimo messaggio</span> </div>
+                        </div>
+                        <div class="toggle d-flex align-items-center me-3">
+                            <i class="fa-solid fa-magnifying-glass m-2 me-3"></i>
+                            <i class="fa-solid fa-paperclip me-3"></i>
+                            <i class="fa-solid fa-ellipsis-vertical "></i>
+                        </div>
                     </div>
-                    <div class="ms-2 "><strong>Ricevi notifiche di nuovi messaggi</strong> <br><span class="text-decoration-underline">ricevi notifiche destop</span> </div>
-                </div>
+    
+                    <!-- BOX MESSAGE ----------------------->
+    
+                    <div class="box_message">
 
-                <div class="search d-flex align-items-center mt-1 mb-1"> 
+                        <div class="d-flex justify-content-end" >
+                            <div class="m_green d-flex align-items-center rounded-3 p-3 w-25">ciao</div>
+                        </div>
+
+                        <div class="d-flex mt-1 ">
+                            <div class="m_white d-flex align-items-center rounded-3 p-3 w-25">ciao</div>
+                        </div>
+                        
+                        
+                    </div>
+
+                    <!-- MESSAGE BAR -->
+    
+                    <div class="message_bar d-flex justify-content-evenly align-items-center">
+    
+                        <i class="fa-regular fa-face-smile fa-2x"></i>
+                        <input class="border-0 w-75 h-75 rounded-2 p-2" placeholder="scrivi un messaggio" type="text">
+                        <i class="fa-solid fa-microphone fa-2x"></i>
+    
+                    </div>
+    
                     
-                  <div class="d-flex justify-content-center align-items-center w-100 border-dark m-2  rounded-2">
-
-                    <span><i class="fa-solid fa-magnifying-glass m-2"></i></span>
-                    <input class="w-100 m-2 border-0" placeholder="Cerca o inizia una nuova chat" >
-                    
-                  </div>
-                  
-                    
                 </div>
-
-                <div class="contact_list">
-                    <div class="card-list d-flex align-items-center">
-                        <img class="circle_contact rounded-circle" src="./assets/img/avatar_1.jpg" alt="Avatar img">
-                        <div class="ms-2 "><strong>Luca</strong> <br><span>ultimo messaggio</span> </div>
-                    </div>
-                </div>
-
+    
             </div>
-
-            <!-- right side ------------------------------------------------------------------------>
-            <!-- PROFILE ------------------------------>
-            <div class="col-8">
-                <div class="profile d-flex align-items-center justify-content-between">
-                    <div class="profile_img d-flex align-items-center ms-2">
-                        <img src="./assets/img/avatar_io.jpg" alt="Profile img">                       
-                        <div class="ms-2 "><strong>Luca</strong> <br><span>ultimo messaggio</span> </div>
-                    </div>
-                    <div class="toggle d-flex align-items-center me-3">
-                        <i class="fa-solid fa-magnifying-glass m-2 me-3"></i>
-                        <i class="fa-solid fa-paperclip me-3"></i>
-                        <i class="fa-solid fa-ellipsis-vertical "></i>
-                    </div>
-                </div>
-
-                <!-- BOX MESSAGE ----------------------->
-
-                <div class="box_message"></div>
-
-                <div class="message_bar d-flex justify-content-evenly align-items-center">
-
-                    <i class="fa-regular fa-face-smile fa-2x"></i>
-                    <input class="border-0 w-75 h-75 rounded-2 p-2" placeholder="scrivi un messaggio" type="text">
-                    <i class="fa-solid fa-microphone fa-2x"></i>
-
-                </div>
-
-                
-            </div>
-
+    
+            <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+            <script src="./js/main.js"></script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+                crossorigin="anonymous"></script>
         </div>
+        
 
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script src="./assets/js/main.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-            crossorigin="anonymous"></script>
     </body>
+
 </html>
