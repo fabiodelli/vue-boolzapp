@@ -2,10 +2,38 @@
      margin: 0;
      padding: 0;
      box-sizing: border-box;
-     border: 1px solid;
+     /* border: 1px solid; */
  }
 
  body{
     background: linear-gradient(to bottom,rgb(0, 150, 136) 20%,rgb(219, 219, 210)20% 90%);
  }
+
+ .container{
+    height: 90vh;
+ }
+
+ .your_profile{
+    height: 9%;
+    background: rgb(234, 234, 234);
+ }
+
+ .profile_img img{
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+ }
+
+ .desktop_notification{
+    height: 10%;
+    background: rgb(142, 218, 252);
+ }
+ .search{
+    height: 7%;
+ }
+ .contact_list{
+    height: 74%;
+ }
+
+
  
