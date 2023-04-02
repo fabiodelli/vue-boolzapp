@@ -67,9 +67,12 @@
     
                     <div class="contact_list">
 
-                        <div v-for="contact in contacts" :key="index" class=" card-list d-flex align-items-center m-2">
-                            <img class="circle_contact rounded-circle" :src="contact.avatar" alt="Avatar img">
-                            <div><strong>{{contact.name}}</strong> <br><span>{{contact.messages[contact.messages.length -1].date}}</span> </div>
+                        <div v-for="(contact, index) in contacts"  @click="selected(index)"  class=" card-list d-flex justify-content-between align-items-center m-2">
+                            <div class="d-flex">
+                                <img class="circle_contact rounded-circle" :src="contact.avatar" alt="Avatar img">
+                                <div><strong>{{contact.name}}</strong> <br> <span>Ultimo messaggio</span> </div>
+                            </div>
+                            <div class="align-self-start ">{{contact.messages[contact.messages.length -1].date.slice(11,16)}}</div>
                         </div>
 
                     </div>
@@ -80,9 +83,12 @@
                 <!-- PROFILE ------------------------------>
                 <div class="col-8">
                     <div class="profile d-flex align-items-center justify-content-between">
-                        <div class="profile_img d-flex align-items-center ms-2">
-                            <img src="./img/avatar_io.jpg" alt="Profile img">                       
-                            <div class="ms-2 "><strong>Luca</strong> <br><span>ultimo messaggio</span> </div>
+                        <div  class="profile_img d-flex align-items-center ms-2" >   
+                            <img :src="contacts[activeProfile].avatar" alt="Profile img">                       
+                            <div class="ms-2 ">
+                                <strong>{{ contacts[activeProfile].name }}</strong> <br> 
+                               <!--  <span>{{ contacts.[activeProfile].messages[messages.length - 1].date}}</span> --> 
+                            </div>
                         </div>
                         <div class="toggle d-flex align-items-center me-3">
                             <i class="fa-solid fa-magnifying-glass m-2 me-3"></i>
@@ -95,13 +101,20 @@
     
                     <div class="box_message p-2">
 
-                        <div class="d-flex justify-content-end" >
-                            <div class="m_green d-flex align-items-center rounded-3 p-3 w-25">ciao</div>
-                        </div>
+                       
 
-                        <div class="d-flex mt-1 ">
-                            <div class="m_white d-flex align-items-center rounded-3 p-3 w-25">ciao</div>
-                        </div>
+                            <div v-for="(message, index) in contacts[activeProfile].messages" :key="index" class="d-flex " >
+                                <div v-if="message.status === 'sent'" class="m_green d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}} 
+                                    <span class="fs_10 align-self-end ">{{message.date.slice(11,16)}}</span> 
+                                </div>
+                                <div v-else="message.status !== 'sent'" class="m_white d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}}
+                                <span class="fs_10 align-self-end ">{{message.date.slice(11,16)}}</span>
+                            </div>
+                            </div>
+    
+                           
+                        
+
                         
                         
                     </div>
@@ -121,14 +134,15 @@
     
             </div>
     
-            <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-            <script src="./js/main.js"></script>
-            <script
-                src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-                crossorigin="anonymous"></script>
         </div>
-        
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="./js/main.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous">
+        </script>
+    
 
     </body>
 

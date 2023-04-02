@@ -3,9 +3,8 @@
 const { createApp } = Vue
 createApp({
     data() {
-        activeProfile = 0
         return {
-
+            activeProfile: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -109,7 +108,7 @@ createApp({
                 },
                 {
                     name: 'Claudia',
-                    avatar: './img/avatar_5.jpg',
+                    avatar: './img/avatar_6.jpg',
                     visible: true,
                     messages: [
                         {
@@ -146,7 +145,7 @@ createApp({
                         }
                     ],
                 },
-                
+
                 {
                     name: 'Davide',
                     avatar: './img/avatar_8.jpg',
@@ -173,5 +172,8 @@ createApp({
         }
     },
     methods: {
+        selected(index) {
+            this.activeProfile = index
+        },
     },
 }).mount('#app')
