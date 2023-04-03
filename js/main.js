@@ -170,15 +170,21 @@ createApp({
                 }
             ],
 
-            newMessage: ''
-
+            newMessage: '',
         }
     },
     methods: {
         selected(index) {
             this.activeProfile = index
         },
+        response() {
 
+            this.contacts[this.activeProfile].messages.push({
+                date: '10/01/2020 15:51:00',
+                message: 'ok!',
+                status: 'received'
+            });
+        },
         addMessage() {
             if (this.newMessage) {
                 this.contacts[this.activeProfile].messages.push({
@@ -187,20 +193,8 @@ createApp({
                     status: 'sent'
                 });
                 this.newMessage = '';
+                setTimeout(this.response, 1000)
             }
-        },
-        Response() {
-            if (this.newMessage) {
-                this.contacts[this.activeProfile].messages.push({
-                    date: '10/01/2020 15:51:00',
-                    message: 'OK!',
-                    status: 'sent'
-                });
-                this.newMessage = '';
-            }
-        }
+        }, 
     },
-    mounted() {
-        setInterval(this.response, 1000)
-    }
 }).mount('#app')

@@ -58,7 +58,7 @@
                       <div class="d-flex justify-content-center align-items-center w-100 border-dark m-2  rounded-2">
     
                         <span><i class="fa-solid fa-magnifying-glass m-2"></i></span>
-                        <input class="w-100 m-2 border-0" placeholder="Cerca o inizia una nuova chat" >
+                        <input class="w-100 m-2 border-0" placeholder="Cerca o inizia una nuova chat"  >
                         
                       </div>
                       
@@ -88,7 +88,7 @@
                             <div class="ms-2 ">
                                 <strong>{{ contacts[activeProfile].name }}</strong> 
                                 <br> 
-                                <!-- <span>{{ contacts[activeProfile].messages[messages.length -1].date.slice(11,16)}}</span> --> 
+                                <span> Ultimo accesso oggi alle {{ contacts[activeProfile].messages[contacts[activeProfile].messages.length -1].date.slice(11,16)}}</span> 
                             </div>
                         </div>
                         <div class="toggle d-flex align-items-center me-3">
