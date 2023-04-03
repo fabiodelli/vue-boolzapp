@@ -58,7 +58,7 @@
                       <div class="d-flex justify-content-center align-items-center w-100 border-dark m-2  rounded-2">
     
                         <span><i class="fa-solid fa-magnifying-glass m-2"></i></span>
-                        <input class="w-100 m-2 border-0" placeholder="Cerca o inizia una nuova chat"  >
+                        <input class="w-100 m-2 border-0" placeholder="Cerca o inizia una nuova chat"  @keyup="filter" v-model="search" >
                         
                       </div>
                       
@@ -101,23 +101,14 @@
                     <!-- BOX MESSAGE ----------------------->
     
                     <div class="box_message p-2">
-
-                       
-
-                            <div v-for="(message, index) in contacts[activeProfile].messages" :key="index" class="d-flex " >
-                                <div v-if="message.status === 'sent'" class="m_green d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}} 
-                                    <span class="fs_10 align-self-end ">{{message.date.slice(11,16)}}</span> 
-                                </div>
-                                <div v-else="message.status !== 'sent'" class="m_white d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}}
+                        <div v-for="(message, index) in contacts[activeProfile].messages" :key="index" class="d-flex " >
+                            <div v-if="message.status === 'sent'" class="m_green d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}} 
+                                <span class="fs_10 align-self-end ">{{message.date.slice(11,16)}}</span> 
+                            </div>
+                            <div v-else="message.status !== 'sent'" class="m_white d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}}
                                 <span class="fs_10 align-self-end ">{{message.date.slice(11,16)}}</span>
                             </div>
-                            </div>
-    
-                           
-                        
-
-                        
-                        
+                        </div>                                                      
                     </div>
 
                     <!-- MESSAGE BAR -->
