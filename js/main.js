@@ -168,12 +168,39 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+
+            newMessage: ''
+
         }
     },
     methods: {
         selected(index) {
             this.activeProfile = index
         },
+
+        addMessage() {
+            if (this.newMessage) {
+                this.contacts[this.activeProfile].messages.push({
+                    date: '10/01/2020 15:51:00',
+                    message: this.newMessage,
+                    status: 'sent'
+                });
+                this.newMessage = '';
+            }
+        },
+        Response() {
+            if (this.newMessage) {
+                this.contacts[this.activeProfile].messages.push({
+                    date: '10/01/2020 15:51:00',
+                    message: 'OK!',
+                    status: 'sent'
+                });
+                this.newMessage = '';
+            }
+        }
     },
+    mounted() {
+        setInterval(this.response, 1000)
+    }
 }).mount('#app')

@@ -67,7 +67,7 @@
     
                     <div class="contact_list">
 
-                        <div v-for="(contact, index) in contacts"  @click="selected(index)"  class=" card-list d-flex justify-content-between align-items-center m-2">
+                        <div v-for="(contact, index) in contacts"  @click="selected(index)" class=" card-list d-flex justify-content-between align-items-center m-2">
                             <div class="d-flex">
                                 <img class="circle_contact rounded-circle" :src="contact.avatar" alt="Avatar img">
                                 <div><strong>{{contact.name}}</strong> <br> <span>Ultimo messaggio</span> </div>
@@ -125,7 +125,7 @@
                     <div class="message_bar d-flex justify-content-evenly align-items-center">
     
                         <i class="fa-regular fa-face-smile fa-2x"></i>
-                        <input class="border-0 w-75 h-75 rounded-2 p-2" placeholder="scrivi un messaggio" type="text">
+                        <input class="border-0 w-75 h-50 rounded-2 p-2" placeholder="scrivi un messaggio" type="text" @keyup.enter="addMessage"  v-model="newMessage" >
                         <i class="fa-solid fa-microphone fa-2x"></i>
     
                     </div>

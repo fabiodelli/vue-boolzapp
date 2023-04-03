@@ -3,7 +3,7 @@
      padding: 0;
      box-sizing: border-box;
      font-size: 12px;
-     /* border: 1px solid; */
+     border: 1px solid;
  }
 
  body {
@@ -41,6 +41,7 @@
 
  .contact_list {
      height: 73%;
+     overflow-y: scroll;
  }
 
  .circle_contact {
