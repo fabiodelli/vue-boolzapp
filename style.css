@@ -15,7 +15,7 @@
  }
 
  .profile {
-     height: 9%;
+     height: 8%;
      background: rgb(234, 234, 234);
  }
 
@@ -36,11 +36,11 @@
  }
 
  .search {
-     height: 7%;
+     height: 8%;
  }
 
  .contact_list {
-     height: 73%;
+     height: 74%;
      overflow-y: scroll;
  }
 
@@ -54,7 +54,7 @@
  }
 
  .card_list {
-     height: 60px;
+     height: calc(100% / 8);
  }
 
  .card_list img {
@@ -70,7 +70,7 @@
  }
 
  .box_message {
-     height: 82%;
+     height: 84%;
      background-image: url("./img/mine.jpg");
      background-size: 50%;
      overflow-y: scroll;
@@ -93,11 +93,14 @@
      margin-top: 1rem;
  }
 
- .bg-gray {
-     background: lightslategray;
+ .bg_gray {
+     background: rgb(226, 226, 226);
  }
 
  .message_bar {
-     height: 9%;
+     height: 8%;
      background-color: rgb(243, 238, 234);
+ }
+ .message_bar i {
+    color: rgb(165, 165, 165);
  }

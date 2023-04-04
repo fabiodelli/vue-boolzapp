@@ -18,7 +18,7 @@
     </head>
     
     
-    <body">
+    <body>
         
         <div class="vh-100 d-flex align-items-center z_1" id="app">
 
@@ -53,12 +53,12 @@
 
                 <!-- SEARCH -->
 
-                    <div class="search d-flex align-items-center mt-1 mb-1"> 
+                    <div class="search d-flex align-items-center "> 
                         
                       <div class="d-flex justify-content-center align-items-center w-100 border-dark m-2  rounded-2">
     
                         <span><i class="fa-solid fa-magnifying-glass m-2"></i></span>
-                        <input class="w-100 m-2 border-0" placeholder="Cerca o inizia una nuova chat"  @keyup="filter" v-model="search" >
+                        <input class="w-100 m-2 border-0" placeholder="Cerca o inizia una nuova chat" v-model.lazy="search">
                         
                       </div>
                       
@@ -67,12 +67,12 @@
     
                     <div class="contact_list">
 
-                        <div v-for="(contact, index) in contacts"  @click="selected(index)" class=" card-list d-flex justify-content-between align-items-center m-2">
+                        <div v-for="(contact, index) in contacts" v-show="contact.name.includes(search)" :class="{ bg_gray: index === activeProfile }" @click="selected(index)" class=" card_list d-flex justify-content-between align-items-center ps-2 ">
                             <div class="d-flex">
                                 <img class="circle_contact rounded-circle" :src="contact.avatar" alt="Avatar img">
-                                <div><strong>{{contact.name}}</strong> <br> <span>Ultimo messaggio</span> </div>
+                                <div class="ms-2"><strong>{{contact.name}}</strong> <br> <span>Ultimo messaggio</span> </div>
                             </div>
-                            <div class="align-self-start ">{{contact.messages[contact.messages.length -1].date.slice(11,16)}}</div>
+                            <div class="align-self-start m-2">{{contact.messages[contact.messages.length -1].date.slice(11,16)}}</div>
                         </div>
 
                     </div>

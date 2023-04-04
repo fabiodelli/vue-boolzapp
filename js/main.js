@@ -171,7 +171,6 @@ createApp({
             ],
 
             newMessage: '',
-            filtered:[],
             search: '',
         }
     },
@@ -198,10 +197,6 @@ createApp({
                 setTimeout(this.response, 1000)
             }
         },
-        filter() {
-            this.contacts.filter((contact) =>
-            contact.name.toLowerCase().includes(this.search.toLowerCase())
-            
-        )}
+        
     },
 }).mount('#app')
