@@ -196,6 +196,13 @@ createApp({
                 this.newMessage = '';
                 setTimeout(this.response, 1000)
             }
-        }, 
-    },
+        },
+        filter(contact){
+            return contact.name.includes(this.search)
+        },
+       /*  deleteMsg() {
+            const index = messages.indexOf(message);
+            this.contacts[this.activeProfile].messages[index].slice()        
+        } */
+    }
 }).mount('#app')

@@ -96,16 +96,20 @@
  .bg_gray {
      background: rgb(226, 226, 226);
  }
- .bg_green{
-    background-color: rgb(213, 249, 186);
-}
- .bg_white{
-    background-color: white;
-}
+
+ .bg_green {
+     background-color: rgb(213, 249, 186);
+ }
+
+ .bg_white {
+     background-color: white;
+ }
+
  .message_bar {
      height: 8%;
      background-color: rgb(243, 238, 234);
  }
+
  .message_bar i {
-    color: rgb(165, 165, 165);
+     color: rgb(165, 165, 165);
  }
