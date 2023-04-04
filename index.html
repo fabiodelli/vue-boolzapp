@@ -102,22 +102,29 @@
     
                     <div class="box_message p-2">
                         <div v-for="(message, index) in contacts[activeProfile].messages" :key="index" class="d-flex " >
-                            <div v-if="message.status === 'sent'" class="m_green d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}} 
+                            <div v-if="message.status === 'sent'" class="m_green position-relative d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}} 
                                 
                                 
-                                <span class="fs_10 align-self-end ">{{message.date.slice(11,16)}}</span> 
-                                <div class="dropdown ">
-                                    <button class="border-0 bg_green" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                                <span class="fs_10 align-self-end pos_data">{{message.date.slice(11,16)}}</span> 
+                                <div class="dropdown d-flex ">
+                                    <button class="border-0 bg_green mb-5 me-1 " data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
                                     <ul class="dropdown-menu">
                                       <li @click='deleteMsg' ><a class="dropdown-item" href="#" >Delete</a></li>
                                       <li><a class="dropdown-item" href="#">Info</a></li>              
                                     </ul>
-                                  </div>
+                                </div>
 
 
                             </div>
-                            <div v-else="message.status !== 'sent'" class="m_white d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}}
-                                <span class="fs_10 align-self-end ">{{message.date.slice(11,16)}}</span>
+                            <div v-else="message.status !== 'sent'" class="m_white position-relative d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}}
+                                <span class="fs_10 align-self-end pos_data">{{message.date.slice(11,16)}}</span>
+                                <div class="dropdown d-flex ">
+                                    <button class="border-0 bg_white mb-5 me-1 " data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                                    <ul class="dropdown-menu">
+                                      <li @click='deleteMsg' ><a class="dropdown-item" href="#" >Delete</a></li>
+                                      <li><a class="dropdown-item" href="#">Info</a></li>              
+                                    </ul>
+                                </div>
                             </div>
                         </div>                                                      
                     </div>

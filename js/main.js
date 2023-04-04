@@ -200,9 +200,9 @@ createApp({
         filter(contact){
             return contact.name.includes(this.search)
         },
-       /*  deleteMsg() {
-            const index = messages.indexOf(message);
+        deleteMsg() {
+            const index = this.messages.indexOf(message);
             this.contacts[this.activeProfile].messages[index].slice()        
-        } */
+        }
     }
 }).mount('#app')

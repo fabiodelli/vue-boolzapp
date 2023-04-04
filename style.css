@@ -3,7 +3,7 @@
      padding: 0;
      box-sizing: border-box;
      font-size: 12px;
-     border: 1px solid;
+     /* border: 1px solid; */
  }
 
  body {
@@ -80,7 +80,7 @@
  .m_green {
      background-color: rgb(213, 249, 186);
      width: 30%;
-     min-height: 3rem;
+     min-height: 4rem;
      margin-left: 60%;
      margin-top: 1rem;
  }
@@ -88,7 +88,7 @@
  .m_white {
      background-color: rgb(255, 255, 255);
      width: 30%;
-     min-height: 3rem;
+     min-height: 4rem;
      margin-left: 15%;
      margin-top: 1rem;
  }
@@ -100,9 +100,21 @@
  .bg_green {
      background-color: rgb(213, 249, 186);
  }
+ .bg_green i{
+     font-size: 8px;
+ }
 
  .bg_white {
      background-color: white;
+ }
+ .bg_white i{
+    font-size: 8px;
+ }
+ 
+ .pos_data{
+    position: absolute;
+    right: 5px;
+    bottom: 0;
  }
 
  .message_bar {
