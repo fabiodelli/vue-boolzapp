@@ -3,7 +3,7 @@
      padding: 0;
      box-sizing: border-box;
      font-size: 12px;
-     /* border: 1px solid; */
+     border: 1px solid;
  }
 
  body {
@@ -96,7 +96,12 @@
  .bg_gray {
      background: rgb(226, 226, 226);
  }
-
+ .bg_green{
+    background-color: rgb(213, 249, 186);
+}
+ .bg_white{
+    background-color: white;
+}
  .message_bar {
      height: 8%;
      background-color: rgb(243, 238, 234);

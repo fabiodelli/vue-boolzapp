@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
+        <title>Boolzap</title>
         <link rel="stylesheet" href="./style.css">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -58,7 +58,7 @@
                       <div class="d-flex justify-content-center align-items-center w-100 border-dark m-2  rounded-2">
     
                         <span><i class="fa-solid fa-magnifying-glass m-2"></i></span>
-                        <input class="w-100 m-2 border-0" placeholder="Cerca o inizia una nuova chat" v-model.lazy="search">
+                        <input type="text" class="w-100 m-2 border-0 p-2" placeholder="Cerca o inizia una nuova chat" v-model="search">
                         
                       </div>
                       
@@ -67,7 +67,7 @@
     
                     <div class="contact_list">
 
-                        <div v-for="(contact, index) in contacts" v-show="contact.name.includes(search)" :class="{ bg_gray: index === activeProfile }" @click="selected(index)" class=" card_list d-flex justify-content-between align-items-center ps-2 ">
+                        <div v-for="(contact, index) in contacts" :v-show="contact.name.includes(search)" :class="{ bg_gray: index === activeProfile }" @click="selected(index)" class=" card_list d-flex justify-content-between align-items-center ps-2 ">
                             <div class="d-flex">
                                 <img class="circle_contact rounded-circle" :src="contact.avatar" alt="Avatar img">
                                 <div class="ms-2"><strong>{{contact.name}}</strong> <br> <span>Ultimo messaggio</span> </div>
@@ -104,6 +104,13 @@
                         <div v-for="(message, index) in contacts[activeProfile].messages" :key="index" class="d-flex " >
                             <div v-if="message.status === 'sent'" class="m_green d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}} 
                                 <span class="fs_10 align-self-end ">{{message.date.slice(11,16)}}</span> 
+                                <div class="dropdown  align-self-start">
+                                    <button class="border-0 bg_green" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-arrow-down" aria-hidden="true"></i></button>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="#" >Delete</a></li>
+                                      <li><a class="dropdown-item" href="#">Info</a></li>              
+                                    </ul>
+                                  </div>
                             </div>
                             <div v-else="message.status !== 'sent'" class="m_white d-flex justify-content-between align-items-center rounded-3 ps-2 pe-1">{{message.message}}
                                 <span class="fs_10 align-self-end ">{{message.date.slice(11,16)}}</span>
@@ -127,7 +134,7 @@
             </div>
     
         </div>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.min.js"></script>
         <script src="./js/main.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

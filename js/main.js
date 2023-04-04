@@ -196,7 +196,6 @@ createApp({
                 this.newMessage = '';
                 setTimeout(this.response, 1000)
             }
-        },
-        
+        }, 
     },
 }).mount('#app')
