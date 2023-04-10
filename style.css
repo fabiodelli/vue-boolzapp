@@ -125,3 +125,7 @@
  .message_bar i {
      color: rgb(165, 165, 165);
  }
+
+ .d_none{
+    display: none;
+ }

@@ -58,7 +58,7 @@
                       <div class="d-flex justify-content-center align-items-center w-100 border-dark m-2  rounded-2">
     
                         <span><i class="fa-solid fa-magnifying-glass m-2"></i></span>
-                        <input type="text" class="w-100 m-2 border-0 p-2" placeholder="Cerca o inizia una nuova chat" v-model="search">
+                        <input type="text" class="w-100 m-2 border-0 p-2" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup="filter()" >
                         
                       </div>
                       
@@ -67,7 +67,7 @@
     
                     <div class="contact_list">
 
-                        <div v-for="(contact, index) in contacts" v-show="filter(contact)" :class="{ bg_gray: index === activeProfile }" @click="selected(index)" class=" card_list d-flex justify-content-between align-items-center ps-2 ">
+                        <div v-for="(contact, index) in contacts"  :class="{ bg_gray: index === activeProfile,'d-none':contact.visible !== true,}" @click="selected(index)" class=" card_list d-flex justify-content-between align-items-center ps-2 ">
                             <div class="d-flex">
                                 <img class="circle_contact rounded-circle" :src="contact.avatar" alt="Avatar img">
                                 <div class="ms-2"><strong>{{contact.name}}</strong> <br> <span>{{contact.messages[contact.messages.length -1].message}}</span> </div>
@@ -109,7 +109,7 @@
                                 <div class="dropdown d-flex ">
                                     <button class="border-0 bg_green mb-5 me-1 " data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
                                     <ul class="dropdown-menu">
-                                      <li @click='deleteMsg' ><a class="dropdown-item" href="#" >Delete</a></li>
+                                      <li @click="deleteMsg()"  ><a class="dropdown-item" href="#" >Delete</a></li>
                                       <li><a class="dropdown-item" href="#">Info</a></li>              
                                     </ul>
                                 </div>
@@ -121,7 +121,7 @@
                                 <div class="dropdown d-flex ">
                                     <button class="border-0 bg_white mb-5 me-1 " data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
                                     <ul class="dropdown-menu">
-                                      <li @click='deleteMsg' ><a class="dropdown-item" href="#" >Delete</a></li>
+                                      <li @click="deleteMsg()"  ><a class="dropdown-item" href="#" >Delete</a></li>
                                       <li><a class="dropdown-item" href="#">Info</a></li>              
                                     </ul>
                                 </div>
